@@ -17,7 +17,6 @@ UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -25,15 +24,7 @@ UINavigationControllerDelegate {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
-    // Pick an image (from album?)
-    @IBAction func pickAnImage(sender: AnyObject) {
-    
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        self.presentViewController(pickerController, animated: true, completion: nil)
-    }
-    
-    // Pick an image from the Album
+    // Pick an image from the Photo Library
     @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
