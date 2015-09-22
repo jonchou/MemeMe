@@ -12,16 +12,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
+        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        //cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     // Pick an image (from album?)
@@ -55,7 +56,7 @@ UINavigationControllerDelegate {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
         } else {
-                print("oops")
+                print("Was not able to assign image")
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

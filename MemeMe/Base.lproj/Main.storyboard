@@ -18,32 +18,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mSN-Pi-xdl">
-                                <rect key="frame" x="40" y="70" width="520" height="442"/>
+                                <rect key="frame" x="25" y="25" width="550" height="521"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8n-74-HmC">
-                                <rect key="frame" x="0.0" y="562" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="tXB-kt-vqE">
+                                    <barButtonItem width="98" style="plain" systemItem="fixedSpace" id="Ve7-81-9vl"/>
+                                    <barButtonItem title="Album" id="tXB-kt-vqE">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="Huw-ST-kld"/>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="hGS-7r-UYv"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="59" style="plain" systemItem="fixedSpace" id="hPh-O9-ML1"/>
+                                    <barButtonItem title="Camera" id="GfQ-ra-frL">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="uH8-3a-XYc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="85" style="plain" systemItem="fixedSpace" id="z5E-hc-hPy"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnp-JY-neb">
+                                <rect key="frame" x="70" y="476" width="460" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doI-Nh-JnB">
+                                <rect key="frame" x="70" y="80" width="460" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="c8n-74-HmC" secondAttribute="trailing" constant="-20" id="4Ks-zd-aRn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mSN-Pi-xdl" secondAttribute="trailing" constant="20" id="67b-9R-y04"/>
-                            <constraint firstItem="c8n-74-HmC" firstAttribute="top" secondItem="mSN-Pi-xdl" secondAttribute="bottom" constant="50" id="6MX-Te-YrV"/>
                             <constraint firstItem="c8n-74-HmC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="6xU-iL-aj2"/>
-                            <constraint firstItem="mSN-Pi-xdl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="MJC-SB-Rk4"/>
-                            <constraint firstItem="c8n-74-HmC" firstAttribute="top" secondItem="mSN-Pi-xdl" secondAttribute="bottom" constant="50" id="aRs-yh-UdS"/>
-                            <constraint firstItem="mSN-Pi-xdl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="eAp-UC-HHQ"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="c8n-74-HmC" secondAttribute="bottom" constant="-6" id="gsE-9n-2mb"/>
+                            <constraint firstItem="c8n-74-HmC" firstAttribute="top" secondItem="tnp-JY-neb" secondAttribute="bottom" constant="50" id="Cza-2D-j9P"/>
+                            <constraint firstItem="tnp-JY-neb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="DRC-Eh-tiX"/>
+                            <constraint firstItem="mSN-Pi-xdl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="GWe-jc-7Kg"/>
+                            <constraint firstItem="doI-Nh-JnB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="Ld4-My-wFX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mSN-Pi-xdl" secondAttribute="trailing" constant="5" id="QVk-FU-AXL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="doI-Nh-JnB" secondAttribute="trailing" constant="50" id="VRq-GT-oKU"/>
+                            <constraint firstItem="c8n-74-HmC" firstAttribute="top" secondItem="mSN-Pi-xdl" secondAttribute="bottom" constant="10" id="aRs-yh-UdS"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="c8n-74-HmC" secondAttribute="bottom" id="gsE-9n-2mb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tnp-JY-neb" secondAttribute="trailing" constant="50" id="t0j-dc-GuQ"/>
+                            <constraint firstItem="mSN-Pi-xdl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="uJ9-nk-81F"/>
+                            <constraint firstItem="doI-Nh-JnB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="um0-zz-8xW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="GfQ-ra-frL" id="A3U-sV-L6Z"/>
                         <outlet property="imagePickerView" destination="mSN-Pi-xdl" id="vdZ-vR-fFD"/>
                     </connections>
                 </viewController>
