@@ -23,6 +23,7 @@ UINavigationControllerDelegate {
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : -3.0//TODO: Fill in appropriate Float
     ]
+    let memeDelegate = MemeTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ UINavigationControllerDelegate {
         myTextField.defaultTextAttributes = memeTextAttributes
         myTextField.text = myText
         myTextField.textAlignment = NSTextAlignment.Center
+        myTextField.delegate = memeDelegate
     }
     
     // Pick an image from the Photo Library
