@@ -28,18 +28,20 @@ UINavigationControllerDelegate {
         super.viewDidLoad()
         imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
         //set text attributes
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.text = "TOP"
-        topTextField.textAlignment = NSTextAlignment.Center
-        
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.text = "BOTTOM"
-        bottomTextField.textAlignment = NSTextAlignment.Center
+        initializeTextField(topTextField, myText: "TOP")
+        initializeTextField(bottomTextField, myText: "BOTTOM")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    // Initializes the text field to default attributes
+    func initializeTextField(myTextField: UITextField, myText: String) {
+        myTextField.defaultTextAttributes = memeTextAttributes
+        myTextField.text = myText
+        myTextField.textAlignment = NSTextAlignment.Center
     }
     
     // Pick an image from the Photo Library
