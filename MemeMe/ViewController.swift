@@ -13,11 +13,14 @@ UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
     @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(), //TODO: Fill in appropriate UIColor,
@@ -33,6 +36,8 @@ UINavigationControllerDelegate {
         //set text attributes
         initializeTextField(topTextField, myText: "TOP")
         initializeTextField(bottomTextField, myText: "BOTTOM")
+        //disable share button
+        shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -76,6 +81,8 @@ UINavigationControllerDelegate {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
+            //also enable the share button
+            shareButton.enabled = true
         } else {
                 print("Was not able to assign image")
         }
@@ -122,18 +129,34 @@ UINavigationControllerDelegate {
 
     }
     
-    // save button to create a meme
-    func save() {
+    @IBAction func shareMeme(sender: AnyObject) {
         let memedImage = generateMemedImage()
+        let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        self.presentViewController(activityController, animated: true, completion: nil)
+        
+        activityController.completionWithItemsHandler = {
+            activityType, completed, returnedItems, activityError in
+            
+            if completed {
+                self.save(memedImage)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            else {
+                print("Unable to save meme")
+            }
+        }
+    }
+    // saves all meme data, doesn't get used yet
+    func save(memedImage: UIImage) {
         let meme = Meme(topText: topTextField.text!, botText: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
     }
 
     func generateMemedImage() -> UIImage
     {
-        // hide toolbar
+        // hide toolbar and navigation bar
         toolBar.hidden = true
-        
-        // nav bar?
+        navBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -141,8 +164,9 @@ UINavigationControllerDelegate {
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // unhide toolbar
+        // unhide toolbar and navigation bar
         toolBar.hidden = false
+        navBar.hidden = false
         
         return memedImage
     }
