@@ -17,6 +17,8 @@ UINavigationControllerDelegate {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    @IBOutlet weak var toolBar: UIToolbar!
+    
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(), //TODO: Fill in appropriate UIColor,
         NSForegroundColorAttributeName : UIColor.whiteColor(), //TODO: Fill in UIColor,
@@ -27,7 +29,7 @@ UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
+        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
         //set text attributes
         initializeTextField(topTextField, myText: "TOP")
         initializeTextField(bottomTextField, myText: "BOTTOM")
@@ -88,12 +90,16 @@ UINavigationControllerDelegate {
     
     // shifts the view frame up when the keyboard shows
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     // shifts the view frame back down when the keyboard hides
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     // returns the height of the keyboard
@@ -116,7 +122,30 @@ UINavigationControllerDelegate {
 
     }
     
+    // save button to create a meme
+    func save() {
+        let memedImage = generateMemedImage()
+        let meme = Meme(topText: topTextField.text!, botText: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
+    }
 
+    func generateMemedImage() -> UIImage
+    {
+        // hide toolbar
+        toolBar.hidden = true
+        
+        // nav bar?
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // unhide toolbar
+        toolBar.hidden = false
+        
+        return memedImage
+    }
 
 }
 
