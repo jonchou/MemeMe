@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -21,37 +20,44 @@ UINavigationControllerDelegate {
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navBar: UINavigationBar!
     
-    
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(), //TODO: Fill in appropriate UIColor,
-        NSForegroundColorAttributeName : UIColor.whiteColor(), //TODO: Fill in UIColor,
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -3.0//TODO: Fill in appropriate Float
-    ]
     let memeDelegate = MemeTextFieldDelegate()
-    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -5.0
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set the content mode to be Aspect Fit
         imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
-        //set text attributes
+        
+        // set text attributes
         initializeTextField(topTextField, myText: "TOP")
         initializeTextField(bottomTextField, myText: "BOTTOM")
-        //disable share button
+        
+        // disable share button
         shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        // only enable to the camera button when the device has a camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        // allows keyboard notifications
         self.subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // removes keyboard notifications
         self.unsubscribeFromKeyboardNotifications()
     }
     
-    // Initializes the text field to default attributes
+    // initializes the text field to default attributes
     func initializeTextField(myTextField: UITextField, myText: String) {
         myTextField.defaultTextAttributes = memeTextAttributes
         myTextField.text = myText
@@ -59,34 +65,37 @@ UINavigationControllerDelegate {
         myTextField.delegate = memeDelegate
     }
     
-    // Pick an image from the Photo Library
+    // pick an image from the Photo Library
     @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        pickFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
-    // Pick an image from the camera
+    // pick an image from the camera
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
+        pickFromSource(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    // picks the image from the source provided
+    func pickFromSource(theSource: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePicker.sourceType = theSource
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    // Once you pick an image, assign it to the UIImageView
+    // once you pick an image, assign it to the UIImageView
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]){
-        
+        // unwrapping optional image
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
-            //also enable the share button
+            // enable the share button once an image is successfully assigned
             shareButton.enabled = true
         } else {
-                print("Was not able to assign image")
+                print("Not able to assign image")
         }
         
+        // dismiss the picker view
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -95,14 +104,14 @@ UINavigationControllerDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // shifts the view frame up when the keyboard shows
+    // shifts the view frame up when the keyboard shows, only for the bottom text field
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
-    // shifts the view frame back down when the keyboard hides
+    // shifts the view frame back down when the keyboard hides, only for the bottom text field
     func keyboardWillHide(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
             self.view.frame.origin.y += getKeyboardHeight(notification)
@@ -132,12 +141,9 @@ UINavigationControllerDelegate {
     @IBAction func shareMeme(sender: AnyObject) {
         let memedImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        
         self.presentViewController(activityController, animated: true, completion: nil)
-        
         activityController.completionWithItemsHandler = {
             activityType, completed, returnedItems, activityError in
-            
             if completed {
                 self.save(memedImage)
                 self.dismissViewControllerAnimated(true, completion: nil)
@@ -146,10 +152,6 @@ UINavigationControllerDelegate {
                 print("Unable to save meme")
             }
         }
-    }
-    // saves all meme data, doesn't get used yet
-    func save(memedImage: UIImage) {
-        let meme = Meme(topText: topTextField.text!, botText: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
     }
 
     func generateMemedImage() -> UIImage
@@ -169,6 +171,11 @@ UINavigationControllerDelegate {
         navBar.hidden = false
         
         return memedImage
+    }
+    
+    // saves all meme data, doesn't get used yet
+    func save(memedImage: UIImage) {
+        let meme = Meme(topText: topTextField.text!, botText: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
     }
 
 }
