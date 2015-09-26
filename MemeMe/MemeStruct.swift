@@ -1,5 +1,5 @@
 //
-//  MemeClass.swift
+//  MemeStruct.swift
 //  MemeMe
 //
 //  Created by Jonathan Chou on 9/22/15.
@@ -9,16 +9,9 @@
 import Foundation
 import UIKit
 
-class Meme {
+struct Meme {
     var topText: String?
     var botText: String?
     var image: UIImage
     var memedImage: UIImage
-    
-    init(topText: String, botText: String, image: UIImage, memedImage: UIImage){
-        self.topText = topText
-        self.botText = botText
-        self.image = image
-        self.memedImage = memedImage
-    }
 }
