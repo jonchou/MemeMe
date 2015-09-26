@@ -111,11 +111,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    // shifts the view frame back down when the keyboard hides, only for the bottom text field
+    // shifts the view frame back to origin when the keyboard hides
     func keyboardWillHide(notification: NSNotification) {
-        if bottomTextField.isFirstResponder() {
-            view.frame.origin.y = 0
-        }
+        view.frame.origin.y = 0
     }
     
     // returns the height of the keyboard
