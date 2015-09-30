@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="-2084" y="457"/>
         </scene>
-        <!--Collection-->
+        <!--Navigation Controller-->
         <scene sceneID="R6y-1C-VZu">
             <objects>
                 <navigationController id="VSo-hk-U7k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="C6x-dM-1E0"/>
+                    <tabBarItem key="tabBarItem" title="" image="CollectionView" id="C6x-dM-1E0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DdK-Qn-0rg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,11 +81,11 @@
             </objects>
             <point key="canvasLocation" x="-490" y="870"/>
         </scene>
-        <!--Table-->
+        <!--Navigation Controller-->
         <scene sceneID="8vr-E1-g8U">
             <objects>
                 <navigationController id="5VR-xz-I35" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="Kfe-fi-fZx"/>
+                    <tabBarItem key="tabBarItem" title="" image="TableView" id="Kfe-fi-fZx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LwM-l7-XP6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -102,26 +102,17 @@
         <scene sceneID="FxV-F4-Rbz">
             <objects>
                 <tableViewController id="1jo-6Y-xO6" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jep-NU-iy5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jep-NU-iy5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" textLabel="Hak-vE-zRF" style="IBUITableViewCellStyleDefault" id="nOa-k8-2WT">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" rowHeight="100" id="nOa-k8-2WT">
+                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nOa-k8-2WT" id="9eF-EL-FS3">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hak-vE-zRF">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -246,6 +237,10 @@
             <point key="canvasLocation" x="305" y="361"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CollectionView" width="30" height="30"/>
+        <image name="TableView" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1Ki-8I-fYX"/>
     </inferredMetricsTieBreakers>
