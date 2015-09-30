@@ -152,6 +152,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
 
+    @IBAction func leaveView(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     func generateMemedImage() -> UIImage
     {
         // hide toolbar and navigation bar
