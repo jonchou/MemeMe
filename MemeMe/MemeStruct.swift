@@ -6,7 +6,6 @@
 //  Copyright © 2015 Jonathan Chou. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Meme {

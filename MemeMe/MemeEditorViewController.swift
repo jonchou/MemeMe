@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by Jonathan Chou on 9/17/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -174,6 +174,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // saves all meme data, doesn't get used yet
     func save(memedImage: UIImage) {
         let meme = Meme(topText: topTextField.text!, botText: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array on the Application Delegate
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
 
 }
