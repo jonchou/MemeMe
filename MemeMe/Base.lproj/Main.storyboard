@@ -86,6 +86,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flowLayout" destination="MvT-EO-GId" id="Ux9-h5-Bge"/>
                         <outlet property="myCollectionView" destination="SHg-BZ-yWe" id="R3b-Ay-EZS"/>
                     </connections>
                 </collectionViewController>
