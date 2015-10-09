@@ -19,7 +19,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 14)!,
         NSStrokeWidthAttributeName : -5.0
     ]
     
@@ -59,7 +59,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         attribText = NSAttributedString(string: meme.botText!, attributes: memeTextAttributes)
         cell.botLabel.attributedText = attribText
         
-      //  cell.memeImageView.image = meme.memedImage
         return cell
     }
     
