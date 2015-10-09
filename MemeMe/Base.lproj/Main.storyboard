@@ -49,27 +49,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MvT-EO-GId">
-                            <size key="itemSize" width="200" height="150"/>
+                            <size key="itemSize" width="200" height="132"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomMemeCell" id="7cr-Hh-ucI" customClass="CustomMemeCell" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="200" height="150"/>
+                                <rect key="frame" x="0.0" y="64" width="200" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="132"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rv5-lp-ZDO">
-                                            <rect key="frame" x="-20" y="11" width="240" height="128"/>
-                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23Z-Eo-OAb">
+                                            <rect key="frame" x="18" y="18" width="164" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lM-EE-z6Z">
+                                            <rect key="frame" x="18" y="93" width="164" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="23Z-Eo-OAb" firstAttribute="leading" secondItem="7cr-Hh-ucI" secondAttribute="leadingMargin" constant="10" id="2tG-AO-IoE"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="0lM-EE-z6Z" secondAttribute="bottom" constant="10" id="3qd-k8-l8O"/>
+                                    <constraint firstItem="23Z-Eo-OAb" firstAttribute="top" secondItem="7cr-Hh-ucI" secondAttribute="topMargin" constant="10" id="9AW-SP-scw"/>
+                                    <constraint firstItem="0lM-EE-z6Z" firstAttribute="leading" secondItem="7cr-Hh-ucI" secondAttribute="leadingMargin" constant="10" id="JKr-sL-HCd"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="0lM-EE-z6Z" secondAttribute="trailing" constant="10" id="U4n-8P-Qn8"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="23Z-Eo-OAb" secondAttribute="trailing" constant="10" id="cjy-Yk-jR4"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="memeImageView" destination="rv5-lp-ZDO" id="VA3-m7-lNC"/>
+                                    <outlet property="botLabel" destination="0lM-EE-z6Z" id="3pX-mR-Sbd"/>
+                                    <outlet property="topLabel" destination="23Z-Eo-OAb" id="VCg-ya-g0k"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

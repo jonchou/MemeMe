@@ -10,5 +10,13 @@ import UIKit
 
 class CustomMemeCell: UICollectionViewCell {
 
-    @IBOutlet weak var memeImageView: UIImageView!
+ //   @IBOutlet weak var memeImageView: UIImageView!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var botLabel: UILabel!
+    
+    func setText(topText: String, botText: String) {
+        topLabel.text = topText
+        botLabel.text = botText
+    }
+    
 }

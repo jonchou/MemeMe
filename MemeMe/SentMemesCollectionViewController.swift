@@ -16,6 +16,13 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -5.0
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,10 +49,17 @@ class SentMemesCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath) as! CustomMemeCell
         let meme = memes[indexPath.item]
-       // cell.setText(meme.top, bottomString: meme.bottom)
-       // let imageView = UIImageView(image: meme.image)
-        //cell.backgroundView = imageView
-        cell.memeImageView.image = meme.memedImage
+        cell.setText(meme.topText!, botText: meme.botText!)
+        let imageView = UIImageView(image: meme.image)
+        cell.backgroundView = imageView
+        
+        var attribText = NSAttributedString(string: meme.topText!, attributes: memeTextAttributes)
+        cell.topLabel.attributedText = attribText
+        
+        attribText = NSAttributedString(string: meme.botText!, attributes: memeTextAttributes)
+        cell.botLabel.attributedText = attribText
+        
+      //  cell.memeImageView.image = meme.memedImage
         return cell
     }
     
