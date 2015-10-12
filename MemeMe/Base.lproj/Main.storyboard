@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="-1228" y="867"/>
         </scene>
-        <!--Sent Memes Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="cdu-iL-aag">
             <objects>
                 <collectionViewController id="wSr-pt-am3" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,27 +49,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MvT-EO-GId">
-                            <size key="itemSize" width="200" height="132"/>
+                            <size key="itemSize" width="250" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomMemeCell" id="7cr-Hh-ucI" customClass="CustomMemeCell" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="200" height="132"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="CustomMemeCell" id="7cr-Hh-ucI" customClass="CustomMemeCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="250" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lM-EE-z6Z">
-                                            <rect key="frame" x="18" y="93" width="164" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23Z-Eo-OAb">
+                                            <rect key="frame" x="18" y="18" width="214" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23Z-Eo-OAb">
-                                            <rect key="frame" x="18" y="18" width="164" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lM-EE-z6Z">
+                                            <rect key="frame" x="18" y="111" width="214" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -77,6 +77,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.76470588240000004" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="23Z-Eo-OAb" firstAttribute="leading" secondItem="7cr-Hh-ucI" secondAttribute="leadingMargin" constant="10" id="2tG-AO-IoE"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="0lM-EE-z6Z" secondAttribute="bottom" constant="10" id="3qd-k8-l8O"/>
@@ -96,7 +97,7 @@
                             <outlet property="delegate" destination="wSr-pt-am3" id="I7d-Ep-ilk"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="sgg-2d-lDi">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="sgg-2d-lDi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Ob-3l-Dcg">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="e07-Kq-fD0"/>
@@ -129,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="-1224" y="71"/>
         </scene>
-        <!--Sent Memes Table View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="FxV-F4-Rbz">
             <objects>
                 <tableViewController id="1jo-6Y-xO6" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,7 +153,7 @@
                             <outlet property="delegate" destination="1jo-6Y-xO6" id="kxU-MO-i3Q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xTR-HO-3yk">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="xTR-HO-3yk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CmL-jp-yZw">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="1Ki-8I-fYX"/>
@@ -265,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="361"/>
+            <point key="canvasLocation" x="317" y="74"/>
         </scene>
     </scenes>
     <resources>
@@ -273,6 +274,6 @@
         <image name="TableView" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e07-Kq-fD0"/>
+        <segue reference="1Ki-8I-fYX"/>
     </inferredMetricsTieBreakers>
 </document>
