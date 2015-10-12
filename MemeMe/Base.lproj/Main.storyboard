@@ -268,6 +268,38 @@
             </objects>
             <point key="canvasLocation" x="317" y="74"/>
         </scene>
+        <!--Meme Detal View Controller-->
+        <scene sceneID="gSB-Xx-oGG">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="Wdy-lz-k7q" customClass="MemeDetalViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iN7-0d-3fB"/>
+                        <viewControllerLayoutGuide type="bottom" id="FcJ-yy-yuh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gVz-xb-H6z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-67-uIR">
+                                <rect key="frame" x="100" y="160" width="400" height="280"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NQq-67-uIR" secondAttribute="trailing" constant="80" id="Lf2-0Z-zgR"/>
+                            <constraint firstItem="NQq-67-uIR" firstAttribute="leading" secondItem="gVz-xb-H6z" secondAttribute="leadingMargin" constant="80" id="PTq-iA-ZOF"/>
+                            <constraint firstItem="FcJ-yy-yuh" firstAttribute="top" secondItem="NQq-67-uIR" secondAttribute="bottom" constant="160" id="iNK-jL-lVh"/>
+                            <constraint firstItem="NQq-67-uIR" firstAttribute="top" secondItem="iN7-0d-3fB" secondAttribute="bottom" constant="140" id="iq8-HK-cvz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="NQq-67-uIR" id="vOC-gJ-dnz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4f3-y0-1ho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="870"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CollectionView" width="30" height="30"/>
