@@ -32,6 +32,7 @@ class SentMemesTableViewController: UITableViewController {
 
         // set the image and text
         cell.imageView?.image = myMeme.memedImage
+        //cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         cell.textLabel?.text = myMeme.topText! + myMeme.botText!
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingMiddle
         

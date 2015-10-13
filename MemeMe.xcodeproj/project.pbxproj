@@ -472,6 +472,7 @@
 		7B7C13C01BAB914200731CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: jonchou@ucdavis.edu (2T4ATUF2QJ)";
 				INFOPLIST_FILE = MemeMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JonathanChou.MemeMeUITests;
@@ -484,6 +485,7 @@
 		7B7C13C11BAB914200731CCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: jonchou@ucdavis.edu (2T4ATUF2QJ)";
 				INFOPLIST_FILE = MemeMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JonathanChou.MemeMeUITests;

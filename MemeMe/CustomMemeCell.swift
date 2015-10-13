@@ -13,6 +13,7 @@ class CustomMemeCell: UICollectionViewCell {
  //   @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var botLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     func setText(topText: String, botText: String) {
         topLabel.text = topText

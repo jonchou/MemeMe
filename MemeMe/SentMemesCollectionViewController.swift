@@ -28,7 +28,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         
         let space: CGFloat = 2.0
         let width = (view.frame.size.width - 2*space) / 3.0
-        let height = (view.frame.size.height - 2*space) / 3.0
+        let height = (view.frame.size.height - 2*space) / 5.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -50,8 +50,9 @@ class SentMemesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath) as! CustomMemeCell
         let meme = memes[indexPath.item]
         cell.setText(meme.topText!, botText: meme.botText!)
-        let imageView = UIImageView(image: meme.image)
-        cell.backgroundView = imageView
+     //   let imageView = UIImageView(image: meme.image)
+        //cell.backgroundView?.contentMode = UIViewContentMode.ScaleAspectFit
+        cell.imageView.image = meme.image
         
         var attribText = NSAttributedString(string: meme.topText!, attributes: memeTextAttributes)
         cell.topLabel.attributedText = attribText
