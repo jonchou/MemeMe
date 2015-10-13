@@ -9,9 +9,7 @@
 import UIKit
 
 class MemeDetailViewController: UIViewController {
-
     @IBOutlet weak var imageView: UIImageView!
-    
     var meme: Meme!
     
     override func viewWillAppear(animated: Bool) {

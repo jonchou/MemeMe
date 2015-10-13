@@ -46,31 +46,17 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath) as! CustomMemeCell
         let meme = memes[indexPath.item]
         cell.setText(meme.topText!, botText: meme.botText!)
-     //   let imageView = UIImageView(image: meme.image)
-        //cell.backgroundView?.contentMode = UIViewContentMode.ScaleAspectFit
+        cell.setAttributes(meme.topText!, botText: meme.botText!, memeAttribText: memeTextAttributes)
         cell.imageView.image = meme.image
-        
-        var attribText = NSAttributedString(string: meme.topText!, attributes: memeTextAttributes)
-        cell.topLabel.attributedText = attribText
-        
-        attribText = NSAttributedString(string: meme.botText!, attributes: memeTextAttributes)
-        cell.botLabel.attributedText = attribText
-        
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = memes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
-        
     }
-    
-    
-    
 }

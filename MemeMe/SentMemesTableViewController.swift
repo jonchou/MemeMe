@@ -15,7 +15,6 @@ class SentMemesTableViewController: UITableViewController {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // reloads the data when adding a new meme
@@ -32,7 +31,6 @@ class SentMemesTableViewController: UITableViewController {
 
         // set the image and text
         cell.imageView?.image = myMeme.memedImage
-        //cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         cell.textLabel?.text = myMeme.topText! + myMeme.botText!
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingMiddle
         
@@ -40,10 +38,8 @@ class SentMemesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = memes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
-        
     }
 }

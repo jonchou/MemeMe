@@ -289,15 +289,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-67-uIR">
-                                <rect key="frame" x="50" y="100" width="500" height="420"/>
+                                <rect key="frame" x="30" y="50" width="540" height="520"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FcJ-yy-yuh" firstAttribute="top" secondItem="NQq-67-uIR" secondAttribute="bottom" constant="80" id="3th-ct-O0R"/>
-                            <constraint firstItem="NQq-67-uIR" firstAttribute="top" secondItem="iN7-0d-3fB" secondAttribute="bottom" constant="80" id="6yK-0f-jH7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NQq-67-uIR" secondAttribute="trailing" constant="30" id="MTJ-aH-1OF"/>
-                            <constraint firstItem="NQq-67-uIR" firstAttribute="leading" secondItem="gVz-xb-H6z" secondAttribute="leadingMargin" constant="30" id="wBP-hm-Yji"/>
+                            <constraint firstItem="FcJ-yy-yuh" firstAttribute="top" secondItem="NQq-67-uIR" secondAttribute="bottom" constant="30" id="3th-ct-O0R"/>
+                            <constraint firstItem="NQq-67-uIR" firstAttribute="top" secondItem="iN7-0d-3fB" secondAttribute="bottom" constant="30" id="6yK-0f-jH7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NQq-67-uIR" secondAttribute="trailing" constant="10" id="MTJ-aH-1OF"/>
+                            <constraint firstItem="NQq-67-uIR" firstAttribute="leading" secondItem="gVz-xb-H6z" secondAttribute="leadingMargin" constant="10" id="wBP-hm-Yji"/>
                         </constraints>
                     </view>
                     <connections>
